@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The id must be unambiguous, reverse-domain format is used --> 
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-scaffold" version="0.2.3">
+        
+    <!-- Name, description and other stuff-->
+    <name>Scaffold</name>
+    <description>Scaffold for cdv Plugins development</description>
+    <license>Apache 2.0</license>
+    <keywords>keyword1,keyword2</keywords>
+
+    <!-- Define the path to the common JavaScript interface -->
+    <js-module src="www/scaffold.js" name="scaffold">
+        <!-- indicates that the module.exports is inserted into the window object as window.customaction You can have as many <clobbers> as you like.-->
+        <clobbers target="customaction" />
+    </js-module>
+ 
+    <!-- The platform tag specifies a corresponding set of 
+    native code for the platform specifyed by the attribute name-->
+
+    <!-- ios -->
+    <platform name="ios">
+        <!-- The config-file tag encapsulates a feature tag that
+         is injected into the platform-specific config.xml -->
+         <config-file target="config.xml" parent="/*">
+            <feature name="Scaffold">
+                <param name="ios-package" value="Scaffold" />
+                <param name="onload" value="true" />
+            </feature>
+         </config-file>
+         <!-- path in wich native interface files will be installed -->
+         <header-file src="src/ios/Scaffold.h" />
+         <source-file src="src/ios/Scaffold.m" />
+     </platform>
+
+     <!-- android -->
+     <platform name="android">
+        <!-- For Android, the platform-specific config.xml is usually copied in res/xml -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Scaffold">
+                <param name="android-package" value="Scaffold"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <!-- If your plugin contains something that should be included 
+        in the main AndroidManifest.xml e.g.: YourActivity-->
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                    android:name="your.package.name.YourActivity"
+                    android:alwaysRetainTaskState="true"
+                    android:label="@string/smart_app_name"
+                    android:launchMode="singleTask"
+                    android:windowSoftInputMode="adjustResize">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                    <action android:name="android.intent.action.EDIT"/>
+                    <action android:name="android.intent.action.PICK"/>
+
+                    <category android:name="android.intent.category.BROWSABLE"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+
+                    <data android:mimeType="application/pdf"/>
+                </intent-filter>
+            </activity>
+        </config-file>
+        <!-- as for ios, path in wich java files will be installed -->
+        <source-file src="src/android/Scaffold.java" target-dir="src/com/scaffold/plugin"/>
+        <source-file src="src/android/YourActivity.java" target-dir="src/your/package/name"/>
+    </platform>  
+     
+</plugin>
