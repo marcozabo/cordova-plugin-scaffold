@@ -6,9 +6,9 @@ Simple "empty skeleton" that can be useful to develop Cordova plugins
 ## Using
 #Clone the plugin
 
-    $ git clone https://github.com/don/cordova-plugin-hello.git
+    $ git clone https://github.com/marcozabo/cordova-plugin-scaffold.git
 
-#Modify or add what you need to create your custom plugin
+Modify or add what you need to create your custom plugin
 
 #References
 
