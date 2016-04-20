@@ -5,6 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class Scaffold extends CordovaPlugin {
+    
+    private static final String Tag = "ScaffoldPlugin"
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
@@ -13,13 +15,13 @@ public class Scaffold extends CordovaPlugin {
         if (action.equals("customaction")) {
 
             ///PUT YOUR CODE HERE
-
+    
+            Log.i(TAG, "Plugin called!")
             return true;
 
         } else {
             
             return false;
-
         }
     }
 }
