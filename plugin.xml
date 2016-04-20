@@ -12,7 +12,7 @@
     <!-- Define the path to the common JavaScript interface -->
     <js-module src="www/scaffold.js" name="scaffold">
         <!-- indicates that the module.exports is inserted into the window object as window.customaction You can have as many <clobbers> as you like.-->
-        <clobbers target="customaction" />
+        <clobbers target="Scaffold" />
     </js-module>
  
     <!-- The platform tag specifies a corresponding set of 
